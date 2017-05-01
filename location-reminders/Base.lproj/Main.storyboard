@@ -23,13 +23,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Pje-1R-f75">
-                                <rect key="frame" x="56.5" y="100" width="262.5" height="467"/>
+                                <rect key="frame" x="56" y="100" width="263" height="467"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PbM-nR-BCE">
-                                <rect key="frame" x="152" y="574.5" width="70" height="30"/>
-                                <state key="normal" title="Location 1"/>
+                                <rect key="frame" x="114" y="575" width="146" height="30"/>
+                                <state key="normal" title="World's Largest Brick"/>
                                 <connections>
                                     <action selector="location1Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TOm-A8-iGT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ih-Qf-UWi">
+                                <rect key="frame" x="0.0" y="604" width="375" height="30"/>
+                                <state key="normal" title="Jimmy Carter Peanut Statue"/>
+                                <connections>
+                                    <action selector="location2Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xow-0T-Zf2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D85-Qe-d2L">
+                                <rect key="frame" x="0.0" y="637" width="375" height="30"/>
+                                <state key="normal" title="World's Most Scenic Urinal"/>
+                                <connections>
+                                    <action selector="location3Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4XV-2e-o8G"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -38,8 +52,14 @@
                             <constraint firstItem="Pje-1R-f75" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.7" id="2fC-vR-SPu"/>
                             <constraint firstItem="Pje-1R-f75" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5zG-sv-Jed"/>
                             <constraint firstItem="PbM-nR-BCE" firstAttribute="top" secondItem="Pje-1R-f75" secondAttribute="bottom" constant="8" id="8JO-Ta-FBX"/>
+                            <constraint firstItem="D85-Qe-d2L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9yW-rL-UKO"/>
+                            <constraint firstItem="2Ih-Qf-UWi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Bzd-Hl-xtu"/>
                             <constraint firstItem="Pje-1R-f75" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="R86-Ci-8fa"/>
+                            <constraint firstItem="D85-Qe-d2L" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="TLM-4t-ede"/>
                             <constraint firstItem="PbM-nR-BCE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VtV-QL-4cb"/>
+                            <constraint firstItem="2Ih-Qf-UWi" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Z1l-a8-XYf"/>
+                            <constraint firstItem="D85-Qe-d2L" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="iPM-aJ-fzh"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2Ih-Qf-UWi" secondAttribute="bottom" constant="33" id="rhe-HV-mzz"/>
                             <constraint firstItem="Pje-1R-f75" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xrg-Kh-ui7"/>
                         </constraints>
                     </view>
