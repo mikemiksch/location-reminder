@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -93,12 +94,34 @@
                     <view key="view" contentMode="scaleToFill" id="GGe-pD-6ah">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Reminder Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xxg-E0-QIe">
+                                <rect key="frame" x="16" y="72" width="343" height="30"/>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Reminder Radius" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rt5-ku-QsF">
+                                <rect key="frame" x="16" y="110" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xxg-E0-QIe" firstAttribute="width" secondItem="GGe-pD-6ah" secondAttribute="width" constant="-32" id="Kc2-AW-Y7V"/>
+                            <constraint firstItem="xxg-E0-QIe" firstAttribute="leading" secondItem="GGe-pD-6ah" secondAttribute="leadingMargin" id="WMP-Ma-Mx3"/>
+                            <constraint firstItem="xxg-E0-QIe" firstAttribute="top" secondItem="yxH-el-rqC" secondAttribute="bottom" constant="8" symbolic="YES" id="dF1-Qi-aZ8"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="reminderName" destination="xxg-E0-QIe" id="0qC-t4-ZdW"/>
+                        <outlet property="reminderRadius" destination="rt5-ku-QsF" id="h7k-zp-BoH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cUd-nb-gki" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1665" y="790"/>
+            <point key="canvasLocation" x="1664.8" y="789.35532233883066"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eME-VD-BnF">
