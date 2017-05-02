@@ -84,14 +84,11 @@
 		835901B41EB7AC0A003FB153 /* location-reminders */ = {
 			isa = PBXGroup;
 			children = (
-				835901B81EB7AC0A003FB153 /* AppDelegate.h */,
-				835901B91EB7AC0A003FB153 /* AppDelegate.m */,
+				83D267911EB9464200916568 /* Model */,
+				83D267921EB9465000916568 /* View */,
+				83D267931EB9465700916568 /* Controller */,
 				835901BB1EB7AC0A003FB153 /* ViewController.h */,
 				835901BC1EB7AC0A003FB153 /* ViewController.m */,
-				835901BE1EB7AC0A003FB153 /* Main.storyboard */,
-				835901C11EB7AC0A003FB153 /* Assets.xcassets */,
-				835901C31EB7AC0A003FB153 /* LaunchScreen.storyboard */,
-				835901C61EB7AC0A003FB153 /* Info.plist */,
 				835901B51EB7AC0A003FB153 /* Supporting Files */,
 			);
 			path = "location-reminders";
@@ -100,6 +97,10 @@
 		835901B51EB7AC0A003FB153 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				835901C11EB7AC0A003FB153 /* Assets.xcassets */,
+				835901C61EB7AC0A003FB153 /* Info.plist */,
+				835901B81EB7AC0A003FB153 /* AppDelegate.h */,
+				835901B91EB7AC0A003FB153 /* AppDelegate.m */,
 				835901B61EB7AC0A003FB153 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -113,6 +114,29 @@
 				835901CE1EB7B2D6003FB153 /* Parse.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		83D267911EB9464200916568 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		83D267921EB9465000916568 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				835901BE1EB7AC0A003FB153 /* Main.storyboard */,
+				835901C31EB7AC0A003FB153 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		83D267931EB9465700916568 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,6 +388,7 @@
 				835901CB1EB7AC0A003FB153 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
