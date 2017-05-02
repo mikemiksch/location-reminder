@@ -8,14 +8,14 @@
 
 #import "ViewController.h"
 #import "AddReminderViewController.h"
+#import "LocationController.h"
 
 @import Parse;
 @import MapKit;
 
-@interface ViewController () <CLLocationManagerDelegate, MKMapViewDelegate>
+@interface ViewController () <MKMapViewDelegate, LocationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 
@@ -23,48 +23,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self requestPermissions];
+    [LocationController.shared requestPermissions];
+    LocationController.shared.delegate = self;
     self.mapView.showsUserLocation = YES;
     self.mapView.delegate = self;
-    // Do any additional setup after loading the view, typically from a nib.
-    
-//    PFObject *testObject = [PFObject objectWithClassName:@"testObject"];
-//    
-//    testObject[@"testName"] = @"Mike Miksch";
-//    
-//    [testObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-//        if (succeeded) {
-//            NSLog(@"Success saving test object!");
-//        } else {
-//            NSLog(@"There wsa a problem saving. Save Error: %@", error.localizedDescription);
-//        }
-//    }];
-//    
-//    
-//    PFQuery *query = [PFQuery queryWithClassName:@"testObject"];
-//    
-//    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-//        if (error) {
-//            NSLog(@"%@", error.localizedDescription);
-//        } else {
-//            NSLog(@"Query Results %@", objects);
-//        }
-//    }];
-//    
 }
-
-- (void)requestPermissions {
-    self.locationManager = [[CLLocationManager alloc]init];
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    self.locationManager.distanceFilter = 10; //meters
-    
-    self.locationManager.delegate = self;
-    
-    [self.locationManager requestAlwaysAuthorization];
-    
-    [self.locationManager startUpdatingLocation];
-}
-
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     [super prepareForSegue:segue sender:sender];
@@ -124,19 +87,6 @@
     
 }
 
-
-
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    CLLocation *location = locations.lastObject;
-    
-    NSLog(@"Coordinate: %f, %f - Altitude: %f", location.coordinate.latitude, location.coordinate.longitude, location.altitude);
-    
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, 500.0, 500.0);
-    
-    [self.mapView setRegion:region animated:YES];
-}
-
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     if ([annotation isKindOfClass:[MKUserLocation class]]) {
         return nil;
@@ -164,6 +114,13 @@
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
     NSLog(@"Accessory Tapped!");
     [self performSegueWithIdentifier:@"AddReminderViewController" sender:view];
+}
+
+- (void)locationControllerUpdatedLocation:(CLLocation *)location {
+    
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, 500.0, 500.0);
+    
+    [self.mapView setRegion:region animated:YES];
 }
 
 @end

@@ -19,6 +19,7 @@
 		835901D31EB7B316003FB153 /* Bolts.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 835901CD1EB7B2D6003FB153 /* Bolts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		835901D51EB7C0C6003FB153 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 835901D41EB7C0C6003FB153 /* MapKit.framework */; };
 		83D267861EB8FF1A00916568 /* AddReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D267851EB8FF1A00916568 /* AddReminderViewController.m */; };
+		83D2678D1EB91ABD00916568 /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D2678C1EB91ABD00916568 /* LocationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +52,8 @@
 		835901D41EB7C0C6003FB153 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		83D267841EB8FF1A00916568 /* AddReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddReminderViewController.h; sourceTree = "<group>"; };
 		83D267851EB8FF1A00916568 /* AddReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddReminderViewController.m; sourceTree = "<group>"; };
+		83D2678B1EB91ABD00916568 /* LocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationController.h; sourceTree = "<group>"; };
+		83D2678C1EB91ABD00916568 /* LocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,16 +90,9 @@
 		835901B41EB7AC0A003FB153 /* location-reminders */ = {
 			isa = PBXGroup;
 			children = (
-				83D267841EB8FF1A00916568 /* AddReminderViewController.h */,
-				83D267851EB8FF1A00916568 /* AddReminderViewController.m */,
-				835901B81EB7AC0A003FB153 /* AppDelegate.h */,
-				835901B91EB7AC0A003FB153 /* AppDelegate.m */,
-				835901BB1EB7AC0A003FB153 /* ViewController.h */,
-				835901BC1EB7AC0A003FB153 /* ViewController.m */,
-				835901BE1EB7AC0A003FB153 /* Main.storyboard */,
-				835901C11EB7AC0A003FB153 /* Assets.xcassets */,
-				835901C31EB7AC0A003FB153 /* LaunchScreen.storyboard */,
-				835901C61EB7AC0A003FB153 /* Info.plist */,
+				83D267881EB9193A00916568 /* Model */,
+				83D2678A1EB919D200916568 /* View */,
+				83D267891EB9194200916568 /* Controller */,
 				835901B51EB7AC0A003FB153 /* Supporting Files */,
 			);
 			path = "location-reminders";
@@ -105,6 +101,10 @@
 		835901B51EB7AC0A003FB153 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				835901C11EB7AC0A003FB153 /* Assets.xcassets */,
+				835901C61EB7AC0A003FB153 /* Info.plist */,
+				835901B81EB7AC0A003FB153 /* AppDelegate.h */,
+				835901B91EB7AC0A003FB153 /* AppDelegate.m */,
 				835901B61EB7AC0A003FB153 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -118,6 +118,43 @@
 				835901CE1EB7B2D6003FB153 /* Parse.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		83D267871EB9190A00916568 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		83D267881EB9193A00916568 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		83D267891EB9194200916568 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				83D267841EB8FF1A00916568 /* AddReminderViewController.h */,
+				83D267851EB8FF1A00916568 /* AddReminderViewController.m */,
+				835901BB1EB7AC0A003FB153 /* ViewController.h */,
+				835901BC1EB7AC0A003FB153 /* ViewController.m */,
+				83D267871EB9190A00916568 /* View */,
+				83D2678B1EB91ABD00916568 /* LocationController.h */,
+				83D2678C1EB91ABD00916568 /* LocationController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		83D2678A1EB919D200916568 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				835901BE1EB7AC0A003FB153 /* Main.storyboard */,
+				835901C31EB7AC0A003FB153 /* LaunchScreen.storyboard */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83D2678D1EB91ABD00916568 /* LocationController.m in Sources */,
 				83D267861EB8FF1A00916568 /* AddReminderViewController.m in Sources */,
 				835901BD1EB7AC0A003FB153 /* ViewController.m in Sources */,
 				835901BA1EB7AC0A003FB153 /* AppDelegate.m in Sources */,
