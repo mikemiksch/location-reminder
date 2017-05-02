@@ -87,6 +87,31 @@
     
 }
 
+- (UIColor *)randomizePinColor {
+    
+    int lowerBound = 1;
+    int upperBound = 5;
+    int randomNumber = lowerBound + arc4random() % (upperBound - lowerBound);
+    
+    if (randomNumber == 1){
+        return UIColor.redColor;
+    }
+    if (randomNumber == 2){
+        return UIColor.blueColor;
+    }
+    if (randomNumber == 3){
+        return UIColor.yellowColor;
+    }
+    if (randomNumber == 4){
+        return UIColor.orangeColor;
+    }
+    if (randomNumber == 5){
+        return UIColor.greenColor;
+    } else {
+        return nil;
+    }
+}
+
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     if ([annotation isKindOfClass:[MKUserLocation class]]) {
         return nil;
@@ -106,6 +131,7 @@
     UIButton *rightCalloutAccessory = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     
     annotationView.rightCalloutAccessoryView = rightCalloutAccessory;
+    annotationView.pinTintColor = [self randomizePinColor];
     
     return annotationView;
     
