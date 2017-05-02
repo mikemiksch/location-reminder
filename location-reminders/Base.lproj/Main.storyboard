@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MVF-hD-Yjc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,13 +24,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Pje-1R-f75">
-                                <rect key="frame" x="56.5" y="100" width="262.5" height="467"/>
+                                <rect key="frame" x="56" y="100" width="263" height="467"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="IAZ-kS-Szz" appends="YES" id="5FC-Sw-vSL"/>
+                                </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PbM-nR-BCE">
-                                <rect key="frame" x="152" y="574.5" width="70" height="30"/>
-                                <state key="normal" title="Location 1"/>
+                                <rect key="frame" x="114" y="575" width="146" height="30"/>
+                                <state key="normal" title="World's Largest Brick"/>
                                 <connections>
                                     <action selector="location1Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TOm-A8-iGT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ih-Qf-UWi">
+                                <rect key="frame" x="0.0" y="604" width="375" height="30"/>
+                                <state key="normal" title="Jimmy Carter Peanut Statue"/>
+                                <connections>
+                                    <action selector="location2Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xow-0T-Zf2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D85-Qe-d2L">
+                                <rect key="frame" x="0.0" y="637" width="375" height="30"/>
+                                <state key="normal" title="World's Most Scenic Urinal"/>
+                                <connections>
+                                    <action selector="location3Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4XV-2e-o8G"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -38,17 +57,129 @@
                             <constraint firstItem="Pje-1R-f75" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.7" id="2fC-vR-SPu"/>
                             <constraint firstItem="Pje-1R-f75" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5zG-sv-Jed"/>
                             <constraint firstItem="PbM-nR-BCE" firstAttribute="top" secondItem="Pje-1R-f75" secondAttribute="bottom" constant="8" id="8JO-Ta-FBX"/>
+                            <constraint firstItem="D85-Qe-d2L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9yW-rL-UKO"/>
+                            <constraint firstItem="2Ih-Qf-UWi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Bzd-Hl-xtu"/>
                             <constraint firstItem="Pje-1R-f75" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="R86-Ci-8fa"/>
+                            <constraint firstItem="D85-Qe-d2L" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="TLM-4t-ede"/>
                             <constraint firstItem="PbM-nR-BCE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VtV-QL-4cb"/>
+                            <constraint firstItem="2Ih-Qf-UWi" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Z1l-a8-XYf"/>
+                            <constraint firstItem="D85-Qe-d2L" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="iPM-aJ-fzh"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2Ih-Qf-UWi" secondAttribute="bottom" constant="33" id="rhe-HV-mzz"/>
                             <constraint firstItem="Pje-1R-f75" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xrg-Kh-ui7"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="AO8-rw-lJs"/>
                     <connections>
                         <outlet property="mapView" destination="Pje-1R-f75" id="z9k-h1-B7k"/>
+                        <segue destination="SSG-uA-yBI" kind="show" identifier="AddReminderViewController" id="S1u-qz-1Ba"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="IAZ-kS-Szz">
+                    <connections>
+                        <action selector="userLongPressed:" destination="BYZ-38-t0r" id="suv-TJ-366"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="953" y="791"/>
+        </scene>
+        <!--Add Reminder View Controller-->
+        <scene sceneID="dnr-8K-RMg">
+            <objects>
+                <viewController id="SSG-uA-yBI" customClass="AddReminderViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yxH-el-rqC"/>
+                        <viewControllerLayoutGuide type="bottom" id="3et-5Y-Y2d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GGe-pD-6ah">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Reminder Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xxg-E0-QIe">
+                                <rect key="frame" x="16" y="72" width="343" height="30"/>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Reminder Radius" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rt5-ku-QsF">
+                                <rect key="frame" x="16" y="110" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xxg-E0-QIe" firstAttribute="width" secondItem="GGe-pD-6ah" secondAttribute="width" constant="-32" id="Kc2-AW-Y7V"/>
+                            <constraint firstItem="xxg-E0-QIe" firstAttribute="leading" secondItem="GGe-pD-6ah" secondAttribute="leadingMargin" id="WMP-Ma-Mx3"/>
+                            <constraint firstItem="xxg-E0-QIe" firstAttribute="top" secondItem="yxH-el-rqC" secondAttribute="bottom" constant="8" symbolic="YES" id="dF1-Qi-aZ8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="reminderName" destination="xxg-E0-QIe" id="0qC-t4-ZdW"/>
+                        <outlet property="reminderRadius" destination="rt5-ku-QsF" id="h7k-zp-BoH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cUd-nb-gki" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1664.8" y="789.35532233883066"/>
+        </scene>
+        <!--Location Presets View Controller-->
+        <scene sceneID="d3U-1e-agE">
+            <objects>
+                <viewController id="dAm-0r-QAj" customClass="LocationPresetsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MYT-43-Pti"/>
+                        <viewControllerLayoutGuide type="bottom" id="9kt-Fp-4Uh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TMT-dV-vQU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nz2-el-0kl">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="presetCell" id="ydp-fa-NaK">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ydp-fa-NaK" id="5lg-5t-4i0">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Nz2-el-0kl" firstAttribute="leading" secondItem="TMT-dV-vQU" secondAttribute="leadingMargin" constant="-16" id="8oW-2N-Ax5"/>
+                            <constraint firstItem="Nz2-el-0kl" firstAttribute="width" secondItem="TMT-dV-vQU" secondAttribute="width" id="EfT-2a-0D0"/>
+                            <constraint firstItem="Nz2-el-0kl" firstAttribute="top" secondItem="MYT-43-Pti" secondAttribute="bottom" constant="-20" id="xGO-JI-8TO"/>
+                            <constraint firstItem="Nz2-el-0kl" firstAttribute="height" secondItem="TMT-dV-vQU" secondAttribute="height" id="yPa-NM-hCF"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="piw-yG-rwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="953" y="1447"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eME-VD-BnF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MVF-hD-Yjc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SQ4-7R-Z4e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="r0B-eS-SiL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9B2-Ui-VMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="156" y="791.15442278860576"/>
         </scene>
     </scenes>
 </document>
