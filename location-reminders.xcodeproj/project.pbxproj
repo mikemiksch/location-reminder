@@ -20,6 +20,7 @@
 		835901D51EB7C0C6003FB153 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 835901D41EB7C0C6003FB153 /* MapKit.framework */; };
 		83D267861EB8FF1A00916568 /* AddReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D267851EB8FF1A00916568 /* AddReminderViewController.m */; };
 		83D2678D1EB91ABD00916568 /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D2678C1EB91ABD00916568 /* LocationController.m */; };
+		83D267901EB9403F00916568 /* LocationPresetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D2678F1EB9403F00916568 /* LocationPresetsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -54,6 +55,8 @@
 		83D267851EB8FF1A00916568 /* AddReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddReminderViewController.m; sourceTree = "<group>"; };
 		83D2678B1EB91ABD00916568 /* LocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationController.h; sourceTree = "<group>"; };
 		83D2678C1EB91ABD00916568 /* LocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationController.m; sourceTree = "<group>"; };
+		83D2678E1EB9403F00916568 /* LocationPresetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationPresetsViewController.h; sourceTree = "<group>"; };
+		83D2678F1EB9403F00916568 /* LocationPresetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationPresetsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +147,8 @@
 				83D267871EB9190A00916568 /* View */,
 				83D2678B1EB91ABD00916568 /* LocationController.h */,
 				83D2678C1EB91ABD00916568 /* LocationController.m */,
+				83D2678E1EB9403F00916568 /* LocationPresetsViewController.h */,
+				83D2678F1EB9403F00916568 /* LocationPresetsViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 				83D267861EB8FF1A00916568 /* AddReminderViewController.m in Sources */,
 				835901BD1EB7AC0A003FB153 /* ViewController.m in Sources */,
 				835901BA1EB7AC0A003FB153 /* AppDelegate.m in Sources */,
+				83D267901EB9403F00916568 /* LocationPresetsViewController.m in Sources */,
 				835901B71EB7AC0A003FB153 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
