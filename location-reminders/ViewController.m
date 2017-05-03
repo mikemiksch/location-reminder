@@ -41,9 +41,10 @@
         loginViewController.fields = PFLogInFieldsLogInButton | PFLogInFieldsSignUpButton | PFLogInFieldsUsernameAndPassword | PFLogInFieldsFacebook;
         loginViewController.logInView.logo = [[UIView alloc]init];
         loginViewController.logInView.backgroundColor = [UIColor grayColor];
-        
+        [self fetchReminders];
         [self presentViewController:loginViewController animated:YES completion:nil];
     }
+    
 }
 
 - (void)reminderSavedToParse:(id)sender {
@@ -202,6 +203,17 @@
 
 -(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)fetchReminders {
+    PFQuery *query = [PFQuery queryWithClassName:@"Reminder"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                NSLog(@"Here's a reminder! %@", object);
+            }
+        }
+    }];
 }
 
 @end

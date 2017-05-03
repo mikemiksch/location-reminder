@@ -52,11 +52,4 @@
 
 }
 
-//- (void)saveDetails {
-//    NSString *name = self.reminderName.text;
-//    NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
-//    formatter.numberStyle = NSNumberFormatterFloa;
-//    NSNumber *radius =[formatter numberFromString:self.reminderRadius.text];
-//}
-
 @end

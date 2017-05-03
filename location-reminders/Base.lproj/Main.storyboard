@@ -106,9 +106,8 @@
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MBj-O6-ZOo">
-                                <rect key="frame" x="153" y="148" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MBj-O6-ZOo">
+                                <rect key="frame" x="170.5" y="148" width="34" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -121,6 +120,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="xxg-E0-QIe" firstAttribute="width" secondItem="GGe-pD-6ah" secondAttribute="width" constant="-32" id="Kc2-AW-Y7V"/>
+                            <constraint firstItem="MBj-O6-ZOo" firstAttribute="centerX" secondItem="GGe-pD-6ah" secondAttribute="centerX" id="QKZ-mB-pO6"/>
                             <constraint firstItem="xxg-E0-QIe" firstAttribute="leading" secondItem="GGe-pD-6ah" secondAttribute="leadingMargin" id="WMP-Ma-Mx3"/>
                             <constraint firstItem="xxg-E0-QIe" firstAttribute="top" secondItem="yxH-el-rqC" secondAttribute="bottom" constant="8" symbolic="YES" id="dF1-Qi-aZ8"/>
                         </constraints>
