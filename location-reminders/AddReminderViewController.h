@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 @import MapKit;
 
+typedef void(^NewReminderCreatedCompletion)(MKCircle *); // return type(^callback name)(input)
+
 @interface AddReminderViewController : UIViewController
 
 @property(strong, nonatomic) NSString *annotationTitle;
 @property(nonatomic) CLLocationCoordinate2D coordinate;
-
+@property(strong, nonatomic) NewReminderCreatedCompletion completion;
 
 @end

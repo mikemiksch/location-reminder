@@ -12,8 +12,9 @@
 
 @import Parse;
 @import MapKit;
+# import <ParseUI/ParseUI.h>
 
-@interface ViewController () <MKMapViewDelegate, LocationControllerDelegate>
+@interface ViewController () <MKMapViewDelegate, LocationControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
@@ -27,6 +28,26 @@
     LocationController.shared.delegate = self;
     self.mapView.showsUserLocation = YES;
     self.mapView.delegate = self;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reminderSavedToParse:) name:@"ReminderSavedToParse" object:nil];
+    
+    [PFUser logOut];
+    
+    if (![PFUser currentUser]) {
+        PFLogInViewController *loginViewController = [[PFLogInViewController alloc]init];
+        loginViewController.delegate = self;
+        loginViewController.signUpController.delegate = self;
+        
+        loginViewController.fields = PFLogInFieldsLogInButton | PFLogInFieldsSignUpButton | PFLogInFieldsUsernameAndPassword | PFLogInFieldsFacebook;
+        loginViewController.logInView.logo = [[UIView alloc]init];
+        loginViewController.logInView.backgroundColor = [UIColor grayColor];
+        
+        [self presentViewController:loginViewController animated:YES completion:nil];
+    }
+}
+
+- (void)reminderSavedToParse:(id)sender {
+    NSLog(@"Do some stuff since our newReminder was saved.");
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -38,9 +59,24 @@
         
         newReminderViewController.coordinate = annotationView.annotation.coordinate;
         newReminderViewController.annotationTitle = annotationView.annotation.title;
+        
+        __weak typeof(self) bruce = self;
+        
+        newReminderViewController.completion = ^(MKCircle *circle) {
+            __strong typeof(bruce) hulk = bruce;
+            
+            [hulk.mapView removeAnnotation:annotationView.annotation];
+            [hulk.mapView addOverlay:circle];
+        };
     }
 }
 
+
+- (void)dealloc {
+    
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"ReminderSavedToParse" object:nil];
+
+}
 
 - (IBAction)location1Pressed:(id)sender {
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(32.3796527, -86.31108310000002);
@@ -142,11 +178,30 @@
     [self performSegueWithIdentifier:@"AddReminderViewController" sender:view];
 }
 
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
+    MKCircleRenderer *renderer = [[MKCircleRenderer alloc]initWithCircle:overlay];
+    
+    renderer.strokeColor = [UIColor blueColor];
+    renderer.fillColor = [UIColor redColor];
+    renderer.alpha = 0.5;
+    
+    return renderer;
+}
+
+
 - (void)locationControllerUpdatedLocation:(CLLocation *)location {
     
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, 500.0, 500.0);
     
     [self.mapView setRegion:region animated:YES];
+}
+
+- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

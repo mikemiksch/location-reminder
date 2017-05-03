@@ -7,6 +7,7 @@
 //
 
 #import "AddReminderViewController.h"
+#import "Reminder.h"
 
 @interface AddReminderViewController ()
 
@@ -19,8 +20,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"Annotation Title: %@", self.annotationTitle);
-    NSLog(@"Coordinates: %f, %f", self.coordinate.latitude, self.coordinate.longitude);
+    Reminder *newReminder = [Reminder object];
+    
+    newReminder.name =self.annotationTitle;
+    
+    newReminder.location = [PFGeoPoint geoPointWithLatitude:self.coordinate.latitude longitude:self.coordinate.longitude];
+    
+    [newReminder saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        NSLog(@"Annotation Title: %@", self.annotationTitle);
+        NSLog(@"Coordinates: %f, %f", self.coordinate.latitude, self.coordinate.longitude);
+        NSLog(@"Save Reminder Successful:%i - Error: %@", succeeded, error.localizedDescription);
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ReminderSavedToParse" object:nil];
+        
+        if (self.completion) {
+            CGFloat radius = 100; //Get from text field for lab
+            
+            MKCircle *circle = [MKCircle circleWithCenterCoordinate:self.coordinate radius:radius];
+            
+            self.completion(circle);
+            
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }];
 
 }
 
