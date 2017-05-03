@@ -20,9 +20,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+}
+
+
+- (IBAction)saveButtonPressed:(id)sender {
+
     Reminder *newReminder = [Reminder object];
     
-    newReminder.name =self.annotationTitle;
+    newReminder.name =self.reminderName.text;
     
     newReminder.location = [PFGeoPoint geoPointWithLatitude:self.coordinate.latitude longitude:self.coordinate.longitude];
     
@@ -34,7 +40,7 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ReminderSavedToParse" object:nil];
         
         if (self.completion) {
-            CGFloat radius = 100; //Get from text field for lab
+            CGFloat radius = [self.reminderRadius.text floatValue];
             
             MKCircle *circle = [MKCircle circleWithCenterCoordinate:self.coordinate radius:radius];
             
@@ -46,11 +52,11 @@
 
 }
 
-- (void)saveDetails {
-    NSString *name = self.reminderName.text;
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
-    formatter.numberStyle = NSNumberFormatterNoStyle;
-    NSNumber *radius =[formatter numberFromString:self.reminderRadius.text];
-}
+//- (void)saveDetails {
+//    NSString *name = self.reminderName.text;
+//    NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
+//    formatter.numberStyle = NSNumberFormatterFloa;
+//    NSNumber *radius =[formatter numberFromString:self.reminderRadius.text];
+//}
 
 @end
