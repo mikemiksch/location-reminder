@@ -212,6 +212,8 @@
             for (PFObject *object in objects) {
                 NSLog(@"Here's a reminder! %@", object);
             }
+        } else {
+            NSLog(@"%@", error.localizedDescription);
         }
     }];
 }
