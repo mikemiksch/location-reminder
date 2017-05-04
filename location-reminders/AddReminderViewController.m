@@ -29,9 +29,11 @@
 
     Reminder *newReminder = [Reminder object];
     
-    newReminder.name =self.reminderName.text;
+    newReminder.name = self.reminderName.text;
     
     newReminder.location = [PFGeoPoint geoPointWithLatitude:self.coordinate.latitude longitude:self.coordinate.longitude];
+    
+    newReminder.radius = [NSNumber numberWithFloat:[self.reminderRadius.text floatValue]];
     
     [newReminder saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         NSLog(@"Annotation Title: %@", self.annotationTitle);

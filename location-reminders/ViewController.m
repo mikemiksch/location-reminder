@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "AddReminderViewController.h"
 #import "LocationController.h"
+#import "Reminder.h"
 
 @import Parse;
 @import MapKit;
@@ -28,10 +29,11 @@
     LocationController.shared.delegate = self;
     self.mapView.showsUserLocation = YES;
     self.mapView.delegate = self;
+    [self fetchReminders];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reminderSavedToParse:) name:@"ReminderSavedToParse" object:nil];
     
-    [PFUser logOut];
+//    [PFUser logOut];
     
     if (![PFUser currentUser]) {
         PFLogInViewController *loginViewController = [[PFLogInViewController alloc]init];
@@ -41,7 +43,7 @@
         loginViewController.fields = PFLogInFieldsLogInButton | PFLogInFieldsSignUpButton | PFLogInFieldsUsernameAndPassword | PFLogInFieldsFacebook;
         loginViewController.logInView.logo = [[UIView alloc]init];
         loginViewController.logInView.backgroundColor = [UIColor grayColor];
-        [self fetchReminders];
+
         [self presentViewController:loginViewController animated:YES completion:nil];
     }
     
@@ -209,8 +211,16 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Reminder"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if (!error) {
-            for (PFObject *object in objects) {
+            for (Reminder *object in objects) {
                 NSLog(@"Here's a reminder! %@", object);
+                CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(object.location.latitude, object.location.longitude);
+                NSLog(@"%f", [object.radius doubleValue]);
+                MKCircle *circle = [MKCircle circleWithCenterCoordinate:coordinate radius:[object.radius doubleValue]];
+                if ([CLLocationManager isMonitoringAvailableForClass:[CLCircularRegion class]]) {
+                    CLCircularRegion *region = [[CLCircularRegion alloc]initWithCenter:coordinate radius:[object.radius doubleValue] identifier:object.name];
+                    [LocationController.shared startMonitoringForRegion:region];
+                }
+                [self.mapView addOverlay:circle];
             }
         } else {
             NSLog(@"%@", error.localizedDescription);
