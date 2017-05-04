@@ -8,6 +8,8 @@
 
 #import "LocationController.h"
 
+@import UserNotifications;
+
 @interface LocationController () <CLLocationManagerDelegate>
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
@@ -42,11 +44,50 @@
     [self.locationManager startUpdatingLocation];
 }
 
+-(void)startMonitoringForRegion:(CLRegion *)region {
+    [self.locationManager startMonitoringForRegion:region];
+}
+
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
     CLLocation *location = locations.lastObject;
     [self.delegate locationControllerUpdatedLocation:location];
     
 }
+
+-(void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region {
+    NSLog(@"Successfully started monitoring changes for region: %@", region.identifier);
+}
+
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+    NSLog(@"User did enter region: %@", region.identifier);
+    UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc]init];
+    content.title = @"Reminder!";
+    content.body = [NSString stringWithFormat:@"%@", region.identifier];
+    content.sound = [UNNotificationSound defaultSound];
+    
+    UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:0.1 repeats:NO];
+    
+    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"Location Entered" content:content trigger:trigger];
+    
+    UNUserNotificationCenter *current = [UNUserNotificationCenter currentNotificationCenter];
+    
+    [current removeAllPendingNotificationRequests];
+    [current addNotificationRequest:request withCompletionHandler:nil];
+    
+}
+
+- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
+    NSLog(@"User did exit region: %@", region.identifier);
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    NSLog(@"There was an error: %@", error.localizedDescription); //ignore when using simulator
+}
+
+-(void)locationManager:(CLLocationManager *)manager didVisit:(CLVisit *)visit {
+    NSLog(@"This is here for no reason, but here's a visit: %@", visit);
+}
+
 
 
 @end

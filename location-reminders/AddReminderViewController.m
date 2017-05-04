@@ -8,6 +8,7 @@
 
 #import "AddReminderViewController.h"
 #import "Reminder.h"
+#import "LocationController.h"
 
 @interface AddReminderViewController ()
 
@@ -43,6 +44,12 @@
             CGFloat radius = [self.reminderRadius.text floatValue];
             
             MKCircle *circle = [MKCircle circleWithCenterCoordinate:self.coordinate radius:radius];
+            
+            if ([CLLocationManager isMonitoringAvailableForClass:[CLCircularRegion class]]) {
+                CLCircularRegion *region = [[CLCircularRegion alloc]initWithCenter:self.coordinate radius:radius identifier:newReminder.name];
+                
+                [LocationController.shared startMonitoringForRegion:region];
+            }
             
             self.completion(circle);
             

@@ -100,14 +100,13 @@
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Reminder Radius" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rt5-ku-QsF">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Reminder Radius" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rt5-ku-QsF">
                                 <rect key="frame" x="16" y="110" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MBj-O6-ZOo">
-                                <rect key="frame" x="170.5" y="148" width="34" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MBj-O6-ZOo">
+                                <rect key="frame" x="171" y="148" width="34" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -119,10 +118,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xxg-E0-QIe" firstAttribute="width" secondItem="GGe-pD-6ah" secondAttribute="width" constant="-32" id="Kc2-AW-Y7V"/>
-                            <constraint firstItem="MBj-O6-ZOo" firstAttribute="centerX" secondItem="GGe-pD-6ah" secondAttribute="centerX" id="QKZ-mB-pO6"/>
-                            <constraint firstItem="xxg-E0-QIe" firstAttribute="leading" secondItem="GGe-pD-6ah" secondAttribute="leadingMargin" id="WMP-Ma-Mx3"/>
-                            <constraint firstItem="xxg-E0-QIe" firstAttribute="top" secondItem="yxH-el-rqC" secondAttribute="bottom" constant="8" symbolic="YES" id="dF1-Qi-aZ8"/>
+                            <constraint firstItem="rt5-ku-QsF" firstAttribute="top" secondItem="xxg-E0-QIe" secondAttribute="bottom" constant="8" id="AdI-NE-baW"/>
+                            <constraint firstItem="MBj-O6-ZOo" firstAttribute="top" secondItem="rt5-ku-QsF" secondAttribute="bottom" constant="8" id="FRd-T4-m3D"/>
+                            <constraint firstItem="rt5-ku-QsF" firstAttribute="top" secondItem="xxg-E0-QIe" secondAttribute="bottom" constant="8" id="KJl-Np-RRy"/>
+                            <constraint firstItem="rt5-ku-QsF" firstAttribute="trailing" secondItem="GGe-pD-6ah" secondAttribute="trailingMargin" id="M8O-jQ-enG"/>
+                            <constraint firstItem="MBj-O6-ZOo" firstAttribute="top" secondItem="rt5-ku-QsF" secondAttribute="bottom" constant="8" id="NSf-tv-s5I"/>
+                            <constraint firstItem="rt5-ku-QsF" firstAttribute="leading" secondItem="GGe-pD-6ah" secondAttribute="leadingMargin" id="Up7-Qx-9zS"/>
+                            <constraint firstItem="xxg-E0-QIe" firstAttribute="trailing" secondItem="GGe-pD-6ah" secondAttribute="trailingMargin" id="ZWp-ed-1c5"/>
+                            <constraint firstItem="xxg-E0-QIe" firstAttribute="top" secondItem="yxH-el-rqC" secondAttribute="bottom" constant="8" id="dLW-en-8Xh"/>
+                            <constraint firstItem="xxg-E0-QIe" firstAttribute="leading" secondItem="GGe-pD-6ah" secondAttribute="leadingMargin" id="lhN-he-hBD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MBj-O6-ZOo" secondAttribute="trailing" constant="154" id="y6O-Ip-JU6"/>
+                            <constraint firstItem="MBj-O6-ZOo" firstAttribute="leading" secondItem="GGe-pD-6ah" secondAttribute="leadingMargin" constant="155" id="zZ4-xZ-Z0u"/>
                         </constraints>
                     </view>
                     <connections>

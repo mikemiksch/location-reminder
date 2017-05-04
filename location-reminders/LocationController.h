@@ -28,4 +28,6 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations;
 
+-(void)startMonitoringForRegion:(CLRegion *)region;
+
 @end
